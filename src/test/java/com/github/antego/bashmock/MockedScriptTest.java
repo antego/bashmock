@@ -11,23 +11,23 @@ import static org.junit.Assert.assertTrue;
 public class MockedScriptTest {
     @Test
     public void testExecute() throws IOException, InterruptedException {
-        MockedScript script = new MockedScript();
-        script.setScriptPath("/home/anton/projects/bashmock/src/test/resources/testScript1");
+        MockedScript script = new MockedScript("/home/anton/projects/bashmock/src/test/resources/testScript1");
 
-        CommandMock mock = new CommandMock();
-        mock.setCommand("command1");
-        mock.setExitStatus(0);
+        CommandMock mock = CommandMock.of("command1").withExitStatus(0).build();
         script.addMock(mock);
 
-        CommandMock catMock = new CommandMock();
-        catMock.setCommand("cat");
-        catMock.setExitStatus(1);
-        //script.addMock(catMock);
+        CommandMock catMock = CommandMock.of("cat").withExitStatus(0).build();
+        catMock.when("olo").then(0);
+        catMock.when("ala olo").then(1);
+        script.addMock(catMock);
 
         ExecuteResult result = script.execute(null);
+
         assertNotNull(result.getOutput());
         assertTrue(result.getOutput().contains("testScript1"));
-        assertEquals(0, result.getExitStatus());
+        assertEquals(1, result.getExitStatus());
+//        assertEquals(2, mock.getCalledArgs().size());
+        mock.getCalledArgs().forEach(System.out::println);
     }
 
 }

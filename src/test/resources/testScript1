@@ -1,5 +1,6 @@
 #!/bin/bash
 
 echo "testScript1"
-command1
-cat
+command1 olo olo
+command1 olo ala
+cat ala olo
