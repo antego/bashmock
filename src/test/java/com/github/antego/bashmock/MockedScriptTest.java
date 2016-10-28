@@ -21,7 +21,7 @@ public class MockedScriptTest {
         catMock.when("ala olo").then(1);
         script.addMock(catMock);
 
-        ExecuteResult result = script.execute(null);
+        ExecuteResult result = new SimpleScriptExecutor().execute(script, null);
 
         assertNotNull(result.getOutput());
         assertTrue(result.getOutput().contains("testScript1"));
