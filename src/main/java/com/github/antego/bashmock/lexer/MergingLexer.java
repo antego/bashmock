@@ -15,9 +15,10 @@
 
 package com.github.antego.bashmock.lexer;
 
+import com.github.antego.bashmock.ideaclasses.MergeFunction;
+import com.github.antego.bashmock.ideaclasses.MergingLexerAdapterBase;
 import com.intellij.lexer.Lexer;
-import com.intellij.lexer.MergeFunction;
-import com.intellij.lexer.MergingLexerAdapterBase;
+
 import com.intellij.psi.tree.IElementType;
 import com.intellij.psi.tree.TokenSet;
 

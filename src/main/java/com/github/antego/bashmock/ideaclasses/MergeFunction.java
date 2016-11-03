@@ -1,9 +1,12 @@
+package com.github.antego.bashmock.ideaclasses;
+
 /*
- * Copyright (c) Joachim Ansorg, mail@ansorg-it.com
+ * Copyright 2000-2014 JetBrains s.r.o.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -13,20 +16,13 @@
  * limitations under the License.
  */
 
-package com.github.antego.bashmock;
-
-import com.intellij.lang.Language;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import org.jetbrains.annotations.NotNull;
+        import com.intellij.lexer.Lexer;
+        import com.intellij.psi.tree.IElementType;
 
 /**
- * @author jansorg
+ * @author Anna Bulenkova
  */
-public class BashLanguage extends Language {
-    public BashLanguage() {
-        super("Bash", "application/x-bsh", "application/x-sh", "text/x-script.sh");
 
-    }
-
-
+public interface MergeFunction {
+    IElementType merge(IElementType type, Lexer originalLexer);
 }
